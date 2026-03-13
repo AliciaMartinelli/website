@@ -14,6 +14,11 @@ Personal website for Alicia Martinelli — an AI researcher/engineer portfolio s
 
 No test framework is configured.
 
+## Branching & Deployment
+
+- **`main`** is the production branch. Every push to `main` triggers a GitHub Actions pipeline that builds the site and deploys it via FTPS to Hostpoint.
+- **Feature branches** — all new features and changes must be developed on a separate branch (e.g. `feature/new-blog-post`). Merge into `main` only after testing locally with `npm run dev` and `npm run build`.
+
 ## Architecture
 
 **Next.js 14 App Router** with static export (`output: 'export'` in next.config.js). Styled with **Tailwind CSS** using a custom `am-*` color palette (periwinkle, razz, rose, apricot, lilac, ink, bg, white). Fonts: Inter and Public Sans via `next/font/google`.
