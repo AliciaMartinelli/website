@@ -1,0 +1,99 @@
+---
+title: "Kontext-Interferenz: Warum \"Mehr Kontext\" ein LLM sabotieren kann"
+excerpt: "Das Experiment \"LLM Context Interference Mapping\" zeigt, wie sich Konflikte und irrelevanter Kontext nicht-linear auf die Ausgaben von Mistral-7B, Qwen2-7B und Phi-3 Mini auswirken – und was das für gutes Prompt-Design bedeutet."
+date: "2025-11-20"
+tags: ["LLM", "Prompt Engineering", "Interferenz", "Mistral-7B", "Phi-3 Mini", "Qwen2-7B", "AI Lab"]
+thumbnail: null
+author: "Alicia Martinelli"
+---
+
+### Die dunkle Seite des Multi-Tasking
+
+Wir füttern Large Language Models (LLMs) ständig mit Kontext: System-Anweisungen, Dokumente, Chat-Verläufe. Intuitiv gehen wir davon aus, dass das Modell diese Informationen sinnvoll „mischt“. Aber was passiert, wenn sich diese Informationen widersprechen oder einfach nur unnötig sind?
+
+Das Experiment <strong>„LLM Context Interference Mapping“</strong> hat systematisch untersucht, wie die <strong>versteckten Zustände</strong> und die <strong>Ausgabeverteilungen</strong> (Token Logits/Wahrscheinlichkeiten) von LLMs reagieren, wenn sie gleichzeitig zwei Kontexte (A und B) erhalten. Das Ziel: <strong>Kontextinterferenz</strong> sichtbar und über verschiedene Modelle hinweg vergleichbar zu machen.
+
+Ich suchte nach <strong>nicht-linearen Kompositionseffekten</strong> – also jenen Momenten, in denen die kombinierte Antwort <code>p_AB</code> nicht einfach die mathematische Summe der Einzelantworten <code>p_A</code> und <code>p_B</code> ist. Gemessen wurde diese Abweichung hauptsächlich durch die <strong>KL-Divergenz</strong> (<code>KL_lin</code>) und die <strong>L2-Distanz</strong> im Vergleich zu einer <strong>linearen Baseline</strong>.
+
+### Vier Kategorien von Kontext
+
+Für das Experiment wurden drei populäre offene Modelle – <strong>Mistral-7B-Instruct</strong>, <strong>Qwen2-7B-Instruct</strong> und <strong>Phi-3 Mini</strong> – mit Prompt-Paaren in vier Kategorien konfrontiert:
+
+- <strong>Conflict (Konflikt):</strong> Kontexte, die sich widersprechen.
+- <strong>Complementary (Komplementär):</strong> Kontexte, die sich gegenseitig unterstützen.
+- <strong>Control (Kontrolle):</strong> A und B sind ungefähr gleich (AeqB) – hier sollte die Interferenz idealerweise gering sein.
+- <strong>Irrelevant:</strong> Zusätzlicher Kontext, der keine Rolle spielen sollte.
+
+
+### Drei Modelle, Drei Profile der Interferenz
+
+Die Analyse zeigte, dass jedes Modell Kontexte auf völlig unterschiedliche Weise „mischt“ und somit einzigartige Interferenzprofile aufweist.
+
+#### 1. Mistral-7B-Instruct: Der Empfindliche Mischer
+
+<strong>Mistral-7B-Instruct</strong> zeigte ein klares und interpretierbares Interferenzprofil.
+
+- <strong>Der Konflikt-Effekt:</strong> Prompts der Kategorie <strong>Conflict</strong> erzeugten die <strong>grössten Abweichungen</strong> (grosse <code>KL_lin</code>- und L2-Distanzen) von der linearen Vorhersage. Der mittlere <code>KL_lin</code>-Wert war bei <em>conflict</em> deutlich am höchsten.
+- <strong>Bestätigte Linearität:</strong> Die Kontroll-Prompts (<em>control_AeqB</em>) blieben wie gewünscht nahe an der Baseline.
+
+#### 2. Phi-3 Mini: Der Sanfte Lineare
+
+<strong>Phi-3 Mini</strong> verhielt sich in dieser Konfiguration fast <strong>linear</strong>.
+
+- <strong>Milde Interferenz:</strong> Phi-3 Mini zeigte über alle Kategorien hinweg die <strong>niedrigsten <code>KL_lin</code>-Werte</strong>.
+- <strong>Schlussfolgerung:</strong> Dieses Modell mischt Kontexte relativ <strong>„sanft“</strong>; die kombinierte Ausgabe ist sehr gut durch die einfache Kombination der Einzelausgaben vorhersagbar.
+
+#### 3. Qwen2-7B-Instruct: Der Instabile Aussenseiter
+
+<strong>Qwen2-7B-Instruct</strong> zeigte ungewöhnlich hohe Interferenzwerte.
+
+- <strong>Extreme Abweichung:</strong> Die <code>KL_lin</code>-Werte waren extrem hoch, und das <strong>sogar bei Kontroll-Prompts</strong> (<em>control_AeqB</em>).
+- <strong>Hinweis:</strong> Diese Ergebnisse werden als <strong>exploratorisch und vorläufig</strong> eingestuft, da sie möglicherweise auf Konfigurationsprobleme hindeuten könnten, aber sie zeigen die potenzielle Instabilität mancher Modelle bei Multi-Kontext-Eingaben.
+
+
+### KL-Interferenz über Modelle
+
+<figure>
+  <img
+    src="/ai-lab/llm-context-interference/media/compare_models_KL_lin.png"
+    alt="Vergleich der mittleren KL-Divergenz pro Modell und Kategorie"
+    class="w-full h-auto rounded-xl border border-white/10"
+  />
+  <figcaption>
+    Vergleich der mittleren <code>KL_lin</code> über alle Modelle und Kategorien.
+    Hohe Balken markieren starke Abweichungen von der linearen Baseline – also starke Kontext-Interferenz.
+  </figcaption>
+</figure>
+
+
+
+### Wichtige Schlussfolgerungen für den LLM-Nutzer: Qualität vor Quantität
+
+Die Ergebnisse bestätigen, dass <strong>mehr Kontext nicht automatisch bessere oder stabilere Ergebnisse</strong> liefert. Nutzer können die Qualität ihrer Prompts verbessern, indem sie die Art der Interferenz berücksichtigen:
+
+#### 1. Vermeidung von Konflikten
+
+Die grösste Gefahr geht von widersprüchlichen Informationen oder Anweisungen aus. Da <strong>Conflict-Prompts</strong> die höchste Nicht-Linearität verursachen, gilt:
+
+- <strong>Praktische Konsequenz:</strong> Beim Kombinieren von Anweisungen A und B ist darauf zu achten, dass diese nicht im Widerspruch stehen. Wenn sich ein Modell wie Mistral-7B-Instruct stark von der Baseline entfernt, bedeutet dies, dass die Ausgabe <strong>unvorhersehbar</strong> wird und nicht mehr leicht aus der Summe der Teile abgeleitet werden kann.
+
+#### 2. Irrelevanter Kontext ist kein Platzhalter
+
+Die Kategorie <em>irrelevant</em> zeigte, dass <strong>zusätzlicher, unwesentlicher Kontext nicht immer neutral</strong> ist.
+
+- <strong>Praktische Konsequenz:</strong> Das einfache Hinzufügen von mehr Kontext kann <strong>messbare Nebenwirkungen</strong> haben, da es die Ausgabeverteilung verschiebt. Prompts sollten regelmässig gesäubert und unnötige Dokumentausschnitte entfernt werden, um die Wahrscheinlichkeit unvorhergesehener Interferenzen zu reduzieren.
+
+#### 3. Die Geometrie zählt
+
+Die Analyse der <strong>versteckten Zustände</strong> zeigte, dass selbst wenn die Zustände in den letzten Schichten sehr ähnlich erscheinen, <strong>kleine direktionale Verschiebungen</strong> in der Geometrie systematisch mit den beobachteten, signifikanten Änderungen in der Ausgabeverteilung verbunden sind.
+
+- <strong>Schlussfolgerung:</strong> Die Art der Interferenz ist tief im Modell kodiert, und feinkörnige geometrische Unterschiede in der letzten Schicht können semantisch relevante Interferenz erzeugen.
+
+
+### Fazit
+
+Wenn man LLMs nutzt, um komplexe Aufgaben zu lösen, ist es entscheidend, <strong>den Kontext aktiv zu managen</strong>. Die <strong>Wahl des Modells</strong> spielt eine Rolle.
+
+Der beste Ansatz ist, Prompts <strong>zu bereinigen, Konflikte zu vermeiden</strong> und nur wirklich <strong>relevanten</strong> Kontext zu liefern. Dadurch wird die Wahrscheinlichkeit, dass das LLM den Kontext auf eine Weise kombiniert, die näher an der vorhersagbaren linearen Baseline liegt, erhöht.
+
+

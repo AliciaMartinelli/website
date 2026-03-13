@@ -1,0 +1,23 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# misc
+.DS_Store
+*.tgz
+
+# env
+.env
+.env.*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# large files (uploaded manually)
+public/speaking/willkommen-im-agentic-web/willkommen-im-agentic-web.pdf
+public/speaking/machine-learning-I/Machine Learning I.pdf
+public/bg.svg

@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --am-periwinkle: #C9C9EB;
+  --am-razz: #DF0F51;
+  --am-rose: #FDECF6;
+  --am-apricot: #FFA161;
+  --am-lilac: #E185C8;
+  --am-ink: #111827;
+  --am-bg: #F8F9FB;
+}
+
+
+html, body {
+  background: var(--am-bg) url('/bg.webp') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--am-ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--am-periwinkle), var(--am-lilac), var(--am-razz), var(--am-apricot));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(201, 201, 235, 0.3);
+  color: var(--am-ink);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--am-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--am-periwinkle);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--am-lilac);
+}
