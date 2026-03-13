@@ -254,6 +254,27 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Zertifikate & Weiterbildungen */}
+        <div className="mb-16">
+          <h2 className="font-public-sans text-3xl font-semibold mb-8">
+            <span className="gradient-text">Zertifikate & Weiterbildungen</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              { title: 'AI Fluency: Framework & Foundations', provider: 'Anthropic', date: 'März 2026' },
+              { title: 'Claude 101', provider: 'Anthropic', date: 'März 2026' },
+              { title: 'Claude Code in Action', provider: 'Anthropic', date: 'März 2026' },
+              { title: 'Introduction to Model Context Protocol', provider: 'Anthropic', date: 'März 2026' },
+              { title: 'Branchenwissen Energie', provider: 'VSE (Verband Schweizerischer Elektrizitätsunternehmen)', date: 'März 2026' },
+            ].map((cert, index) => (
+              <GlassCard key={index} className="p-5">
+                <h3 className="font-public-sans font-semibold text-sm mb-1">{cert.title}</h3>
+                <p className="text-xs text-am-ink/60">{cert.provider} · {cert.date}</p>
+              </GlassCard>
+            ))}
+          </div>
+        </div>
+
         {/* Werdegang - Vertikale Timeline */}
         <div className="mb-16">
           <h2 className="font-public-sans text-3xl font-semibold mb-8">

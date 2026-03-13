@@ -2,6 +2,7 @@ import Image from 'next/image';
 import PageTransition from '@/components/PageTransition';
 import GlassCard from '@/components/GlassCard';
 import { Metadata } from 'next';
+import NextStammtischDate from './NextStammtischDate';
 
 export const metadata: Metadata = {
   title: "Community - Alicia Martinelli",
@@ -14,50 +15,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Finde den letzten Donnerstag eines beliebigen Monats
-function getLastThursday(year: number, month: number): Date {
-  const lastDayOfMonth = new Date(year, month + 1, 0);
-  const candidate = new Date(lastDayOfMonth);
-  while (candidate.getDay() !== 4) {
-    candidate.setDate(candidate.getDate() - 1);
-  }
-  return candidate;
-}
-
-// Funktion zur Berechnung des nächsten AI-Stammtisch Termins (letzter Donnerstag im Monat, Dezember ausnahme)
-function getNextStammtischDate(): string {
-  const now = new Date();
-  let year = now.getFullYear();
-  let month = now.getMonth();
-
-  while (true) {
-    // Dezember wird übersprungen, Event findet wieder im Januar statt
-    if (month === 11) {
-      month = 0;
-      year += 1;
-    }
-
-    const lastThursday = getLastThursday(year, month);
-
-    if (lastThursday >= now) {
-      return lastThursday.toLocaleDateString('de-CH', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-    }
-
-    month += 1;
-    if (month > 11) {
-      month = 0;
-      year += 1;
-    }
-  }
-}
-
 export default function CommunityPage() {
-  const nextEventDate = getNextStammtischDate();
   return (
     <PageTransition>
       <section className="mx-auto max-w-6xl px-4 py-10">
@@ -120,9 +78,7 @@ export default function CommunityPage() {
               <div className="space-y-6">
                 <div>
                   <h3 className="font-public-sans font-semibold text-lg mb-3">Nächstes Event</h3>
-                  <p className="text-sm text-am-ink/70 mb-2">
-                    <strong>{nextEventDate}</strong>
-                  </p>
+                  <NextStammtischDate />
                   <p className="text-sm text-am-ink/70">
                     Wir würden uns freuen, wenn du dabei bist! Folge uns auf Meetup für Updates zu kommenden Events und Themen.
                   </p>
