@@ -82,16 +82,6 @@ export default function SpeakingPage() {
                           Event Stream
                         </a>
                       )}
-                      {talk.slidesUrl && (
-                        <a
-                          href={talk.slidesUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="glass-button px-6 py-3 rounded-pill text-sm font-medium"
-                        >
-                          Slides ansehen / downloaden
-                        </a>
-                      )}
                     </div>
 
                     {talk.note && <p className="text-sm text-am-ink/60">{talk.note}</p>}
