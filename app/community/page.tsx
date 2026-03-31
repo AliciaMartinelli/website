@@ -104,6 +104,33 @@ export default function CommunityPage() {
           <h2 className="font-public-sans text-2xl font-semibold mb-6">Open Source Contributions</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <GlassCard>
+              <h3 className="font-public-sans font-semibold text-lg mb-3">
+                <span style={{background: 'linear-gradient(90deg, #C9C9EB, #E185C8, #DF0F51, #FFA161)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>pecto</span>
+              </h3>
+              <p className="text-sm text-am-ink/70 mb-4">
+                Open Source CLI-Tool das Behavior Specs aus Java, C#, Python und TypeScript Code extrahiert. Statische Analyse mit Rust + tree-sitter.
+              </p>
+              <div className="flex gap-4">
+                <a
+                  href="https://pecto.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-am-razz text-sm font-medium hover:underline"
+                >
+                  pecto.dev →
+                </a>
+                <a
+                  href="https://github.com/AliciaMartinelli/pecto"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-am-razz text-sm font-medium hover:underline"
+                >
+                  GitHub →
+                </a>
+              </div>
+            </GlassCard>
+
+            <GlassCard>
               <h3 className="font-public-sans font-semibold text-lg mb-3">AI Lab Repository</h3>
               <p className="text-sm text-am-ink/70 mb-4">
                 Meine Experimente, Prototypen und Evaluationen. Alle Projekte sind öffentlich dokumentiert und zur Zusammenarbeit offen.

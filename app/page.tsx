@@ -32,7 +32,16 @@ export default function Page() {
           die zeigen, wohin die Reise geht. Alles was ich lerne und baue, teile ich hier mit dir.
         </p>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <GlassCard className="flex flex-col h-full border-am-razz/20">
+            <h3 className="font-public-sans font-semibold text-lg">
+              <span style={{background: 'linear-gradient(90deg, #C9C9EB, #E185C8, #DF0F51, #FFA161)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>pecto</span>
+            </h3>
+            <p className="mt-2 text-sm flex-grow">Mein Open Source CLI-Tool das Behavior Specs aus Code extrahiert. Unterstützt Java, C#, Python und TypeScript.</p>
+            <div className="mt-3">
+              <a href="https://pecto.dev" target="_blank" rel="noopener noreferrer" className="text-am-razz text-sm font-medium hover:underline">pecto.dev →</a>
+            </div>
+          </GlassCard>
           <GlassCard className="flex flex-col h-full">
             <h3 className="font-public-sans font-semibold text-lg">AI Lab</h3>
             <p className="mt-2 text-sm flex-grow">Experimente mit Agenten, LLMs und autonomen Systemen. Alle Projekte und Erkenntnisse dokumentiere ich öffentlich auf GitHub.</p>

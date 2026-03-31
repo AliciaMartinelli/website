@@ -20,6 +20,13 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   const timelineItems = [
     {
+      id: 'pecto',
+      title: 'pecto — Open Source',
+      period: 'März 2026',
+      description: 'Mein erstes Open Source Projekt: pecto extrahiert Behavior Specs aus Java, C#, Python und TypeScript Codebases. Gebaut mit Rust + tree-sitter. pecto.dev',
+      color: 'bg-am-razz/20'
+    },
+    {
       id: 'full-stack-developer',
       title: 'Full-Stack Developer',
       period: 'Aug. 2025 - Heute',
