@@ -18,6 +18,12 @@ jobs:
       - run: npm ci
       - run: npm run build
 
+      - name: Set Michela admin password
+        run: |
+          sed -i "s/bitte-aendern/${MICHELA_PASSWORT}/" out/michelas-hundeschule/admin/speichern.php
+        env:
+          MICHELA_PASSWORT: ${{ secrets.MICHELA_ADMIN_PASSWORT }}
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:

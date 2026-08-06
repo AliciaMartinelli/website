@@ -83,7 +83,7 @@
       karte.className = 'karte';
       karte.innerHTML =
         '<div class="karte__bild" style="background-image:url(' + bild(a.bild) + ')">' +
-          '<span class="badge" style="background:' + KATEGORIE_FARBEN[a.id] + '">' + a.typ + '</span>' +
+          '<span class="badge" style="background:' + (KATEGORIE_FARBEN[a.id] || '#5a7d9a') + '">' + a.typ + '</span>' +
         '</div>' +
         '<div class="karte__inhalt">' +
           '<h3>' + a.name + '</h3>' +
@@ -119,7 +119,7 @@
     $('#modal-img').src        = bild(a.bild);
     $('#modal-img').alt        = a.name;
     $('#modal-typ').textContent = a.typ;
-    $('#modal-typ').style.background = KATEGORIE_FARBEN[a.id];
+    $('#modal-typ').style.background = KATEGORIE_FARBEN[a.id] || '#5a7d9a';
     $('#modal-titel').textContent  = a.name;
     $('#modal-desc').textContent   = a.kurz;
     $('#modal-detail').textContent = a.lang;
@@ -360,9 +360,24 @@
   }
 
   /* -------------------------------------------------------
+     Daten aus daten.json laden (Pflege über /admin/).
+     Schlägt das fehl, gelten die Fallback-Werte aus daten.js.
+     ------------------------------------------------------- */
+  async function datenLaden() {
+    try {
+      const antwort = await fetch('daten.json', { cache: 'no-store' });
+      if (!antwort.ok) return;
+      const daten = await antwort.json();
+      if (Array.isArray(daten.angebote) && daten.angebote.length) ANGEBOTE = daten.angebote;
+      if (Array.isArray(daten.wochenplan) && daten.wochenplan.length) WOCHENPLAN = daten.wochenplan;
+    } catch (_) { /* Fallback aus daten.js verwenden */ }
+  }
+
+  /* -------------------------------------------------------
      Start
      ------------------------------------------------------- */
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', async () => {
+    await datenLaden();
     sliderStarten();
     angeboteAufbauen();
     planAufbauen();

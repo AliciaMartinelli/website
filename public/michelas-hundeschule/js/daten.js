@@ -23,8 +23,11 @@ const KATEGORIE_FARBEN = {
   coaching: '#8a5a86'
 };
 
-/* ---------- Angebote ---------- */
-const ANGEBOTE = [
+/* ---------- Angebote ----------
+   Achtung: Angebote und Wochenplan werden live aus daten.json
+   geladen (Pflege über /admin/). Die Werte hier sind nur der
+   Fallback, falls daten.json nicht erreichbar ist. */
+let ANGEBOTE = [
   {
     id: 'welpen',
     name: 'Welpen- & Junghundekurs',
@@ -151,7 +154,7 @@ const PLAN_ZU_ANGEBOT = {
 /* Kurse, die es nur im Wochenplan gibt */
 const WEITERE_KURSE = ['Social Walk', 'Creative', 'Spass & Sport'];
 
-const WOCHENPLAN = [
+let WOCHENPLAN = [
   { zeit: '09:30', Dienstag: 'Spazierdienst', Donnerstag: 'Spazierdienst', Samstag: 'Social Walk' },
   { zeit: '10:00', Mittwoch: 'Social Walk' },
   { zeit: '11:00', Freitag: 'Creative' },

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Inhalte pflegen – allaboutdogs</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<header class="kopf">
+  <h1>🐾 Inhalte pflegen</h1>
+  <p>Hier kannst du deine <b>Angebote</b> und den <b>Wochenplan</b> ändern.
+     Mit „Änderungen veröffentlichen“ ist alles sofort auf der Webseite sichtbar.</p>
+</header>
+
+<main>
+  <section class="block">
+    <h2>Angebote</h2>
+    <p class="hilfe">Texte einfach direkt in den Feldern anpassen. Mit „✕ Angebot löschen“
+       verschwindet ein Kurs von der Webseite, mit „+ Neues Angebot“ kommt ein leerer dazu.</p>
+    <div id="angebote"></div>
+    <button class="btn btn--hell" type="button" id="angebot-neu">+ Neues Angebot</button>
+  </section>
+
+  <section class="block">
+    <h2>Wochenplan</h2>
+    <p class="hilfe">Pro Zeile eine Uhrzeit (z.&nbsp;B. 09:30). In die Tagesfelder den Kursnamen
+       schreiben — leere Felder bleiben im Plan einfach leer. Zeilen ohne Kurse werden beim
+       Speichern automatisch entfernt.</p>
+    <div class="plan-scroll">
+      <table id="plan">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <button class="btn btn--hell" type="button" id="zeile-neu">+ Neue Zeile</button>
+  </section>
+
+  <section class="block block--speichern">
+    <h2>Veröffentlichen</h2>
+    <label for="passwort">Passwort</label>
+    <div class="speichern-zeile">
+      <input type="password" id="passwort" autocomplete="current-password" placeholder="Dein Admin-Passwort">
+      <button class="btn" type="button" id="speichern">Änderungen veröffentlichen</button>
+    </div>
+    <p id="status" class="status" hidden></p>
+    <p class="hilfe">Tipp: Schau danach kurz auf der <a href="../" target="_blank" rel="noopener">Webseite</a> nach, ob alles stimmt.</p>
+  </section>
+</main>
+
+<datalist id="bekannte-kurse">
+  <option value="Spazierdienst"><option value="Social Walk"><option value="Creative">
+  <option value="Hundefrisbee"><option value="Junghunde"><option value="Welpen">
+  <option value="Welpen/Junghundekurs"><option value="Trickdog"><option value="Spass & Sport">
+</datalist>
+
+<script src="admin.js"></script>
+</body>
+</html>
