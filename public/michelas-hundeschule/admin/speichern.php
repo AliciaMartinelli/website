@@ -107,7 +107,7 @@ if (count($angeboteSauber) > 30) {
 }
 
 // ---- Wochenplan prüfen ---------------------------------------------
-$tage = ['Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+$tage = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 $planSauber = [];
 foreach ($wochenplan as $zeile) {
     if (!is_array($zeile)) {

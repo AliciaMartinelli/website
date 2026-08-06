@@ -8,7 +8,7 @@
 
   const $ = (sel, wurzel) => (wurzel || document).querySelector(sel);
 
-  const TAGE = ['Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+  const TAGE = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 
   const ANGEBOT_FELDER = [
     { schluessel: 'name',         label: 'Name des Angebots',        art: 'text',     breit: true },

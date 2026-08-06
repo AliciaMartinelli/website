@@ -129,7 +129,7 @@ const GALERIE = [
 ];
 
 /* ---------- Wochenplan ---------- */
-const PLAN_TAGE = ['Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+const PLAN_TAGE = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 
 const PLAN_FARBEN = {
   'Spazierdienst':        '#bcdcee',
