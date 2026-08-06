@@ -115,6 +115,15 @@
   });
 
   /* ---------- Wochenplan ---------- */
+  /* Zeilen nach Uhrzeit sortieren; Zeilen ohne gültige Zeit ans Ende
+     (so bleibt eine frisch angelegte Zeile unten, bis die Zeit drinsteht). */
+  function planSortieren() {
+    const schluessel = z => /^\d{1,2}:\d{2}$/.test(z.zeit || '')
+      ? z.zeit.padStart(5, '0')
+      : '99:99';
+    daten.wochenplan.sort((a, b) => schluessel(a).localeCompare(schluessel(b)));
+  }
+
   function planZeichnen() {
     const kopf = $('#plan thead');
     const koerper = $('#plan tbody');
@@ -131,6 +140,11 @@
       zeit.placeholder = '09:30';
       zeit.value = zeile.zeit || '';
       zeit.addEventListener('input', () => { zeile.zeit = zeit.value; });
+      /* Beim Verlassen des Zeitfelds die Zeile an die richtige Stelle rücken */
+      zeit.addEventListener('change', () => {
+        planSortieren();
+        planZeichnen();
+      });
       zeitZelle.appendChild(zeit);
       tr.appendChild(zeitZelle);
 
