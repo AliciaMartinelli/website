@@ -39,8 +39,11 @@ if (!is_array($eingabe)) {
 
 // Sicherung: Mit dem Platzhalter-Passwort funktioniert das Speichern
 // nur lokal (beim Testen) — nie auf einem echten Server.
+// Der Platzhalter ist hier bewusst zusammengesetzt, damit ein
+// automatisches Ersetzen beim Deploy diese Zeile nicht mitverändert.
+$platzhalter = 'bitte-' . 'aendern';
 $istLokal = in_array($_SERVER['REMOTE_ADDR'] ?? '', ['127.0.0.1', '::1'], true);
-if ($ADMIN_PASSWORT === 'bitte-aendern' && !$istLokal) {
+if ($ADMIN_PASSWORT === $platzhalter && !$istLokal) {
     http_response_code(403);
     antwort(false, 'Das Admin-Passwort wurde noch nicht eingerichtet.');
 }
