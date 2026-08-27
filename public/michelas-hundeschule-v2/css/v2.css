@@ -23,6 +23,8 @@ body.hat-videohero .site-header {
   display: grid;
   place-items: end center;
   overflow: hidden;
+  /* Poster als Fallback, falls das Video (noch) nicht lädt, z. B. iPhone-Stromsparmodus */
+  background: var(--navy) url('../bilder/header-video-poster.jpg') center / cover no-repeat;
 }
 
 .video-hero__video {
@@ -119,7 +121,8 @@ body.hat-videohero .site-header {
 
 @media (max-width: 700px) {
   .video-hero { min-height: 480px; }
-  .btn-hero { padding: 12px 22px; font-size: 15px; }
+  .btn-hero { padding: 10px 18px; font-size: 14px; }
+  .video-hero__aktionen { gap: 10px; margin-top: 24px; }
 }
 
 /* ---------- Navigation: die wobbeligen Kleckse bleiben!

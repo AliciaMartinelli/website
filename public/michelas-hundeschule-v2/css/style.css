@@ -363,6 +363,7 @@ button, input, select, textarea { font-family: inherit; }
 .ueber__foto img {
   display: block;
   width: 100%;
+  height: auto;   /* hebt das height-Attribut im HTML auf, sonst greift aspect-ratio nicht */
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: var(--radius-l);
@@ -940,11 +941,11 @@ button, input, select, textarea { font-family: inherit; }
 @media (max-width: 720px) {
   body { font-size: 16px; }
 
-  .nav { padding-bottom: 10px; justify-content: center; }
-  .nav__logo img { width: auto; height: 90px; }
+  .nav { padding-bottom: 10px; justify-content: center; gap: 8px; }
+  .nav__logo img { width: auto; height: 68px; }
 
-  .blob { padding: 14px 20px; }
-  .blob span { font-size: 14px; }
+  .blob { padding: 8px 13px; }
+  .blob span { font-size: 12.5px; }
   .blob--1, .blob--2, .blob--3,
   .blob--4, .blob--5, .blob--6 { margin-top: 0; }
 
