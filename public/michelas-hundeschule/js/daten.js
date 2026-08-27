@@ -20,7 +20,8 @@ const KATEGORIE_FARBEN = {
   spazier:  '#5a7d9a',
   seminar:  '#b0863e',
   frisbee:  '#a8503f',
-  coaching: '#8a5a86'
+  coaching: '#8a5a86',
+  'social-walk': '#5f8f4e'
 };
 
 /* ---------- Angebote ----------
@@ -33,23 +34,23 @@ let ANGEBOTE = [
     name: 'Welpen- & Junghundekurs',
     typ: 'Gruppe',
     zielgruppe: 'Welpen bis 6 Mt. & Junghunde',
-    umfang: '8er-Block · 60 Min.',
-    preis: 'CHF 320',
+    umfang: '10er-Block · 60 Min.',
+    preis: 'CHF 400',
     preisEinheit: '/ Block',
     platzgebuehr: true,
     bild: 'angebot-welpen.png',
     kurz: 'Der perfekte Start: Sozialisierung, erste Signale und ein souveräner Umgang im Alltag — spielerisch und ohne Druck.',
-    lang: 'In acht Lektionen à 60 Minuten legen wir gemeinsam das Fundament: Begegnungen mit anderen Hunden, Leinenführigkeit, Rückruf, Impulskontrolle und ein entspannter Alltag in der Stadt. Du lernst dabei, die Körpersprache deines Hundes zu lesen und richtig zu reagieren.'
+    lang: 'In zehn Lektionen à 60 Minuten legen wir gemeinsam das Fundament: Begegnungen mit anderen Hunden, Leinenführigkeit, Rückruf, Impulskontrolle und ein entspannter Alltag in der Stadt. Du lernst dabei, die Körpersprache deines Hundes zu lesen und richtig zu reagieren.'
   },
   {
     id: 'trick',
     name: 'Trickdog',
     typ: 'Gruppe',
     zielgruppe: 'Hunde jeden Alters',
-    umfang: '6er-Block · 60 Min.',
-    preis: 'CHF 240',
+    umfang: '10er-Block · 60 Min.',
+    preis: 'CHF 360',
     preisEinheit: '/ Block',
-    platzgebuehr: false,
+    platzgebuehr: true,
     bild: 'angebot-trickdog.png',
     kurz: 'Tricks fördern Konzentration, Körpergefühl und die Bindung. Von „Pfötchen“ bis zu kleinen Kunststücken.',
     lang: 'Trickdog ist mehr als Spielerei: Über Shaping und Clickertraining bauen wir Schritt für Schritt Tricks auf — vom Slalom durch die Beine bis zur Verbeugung. Das schult Köpfchen und Körper und macht Mensch und Hund zum eingespielten Team.'
@@ -62,20 +63,20 @@ let ANGEBOTE = [
     umfang: 'Halb- oder Ganztag',
     preis: 'Auf Anfrage',
     preisEinheit: '',
-    platzgebuehr: false,
+    platzgebuehr: true,
     bild: 'angebot-seminar.png',
     kurz: 'Themenseminare rund um Hundeverhalten, Körpersprache und Alltagstraining — kompakt an einem Tag.',
-    lang: 'Ob Körpersprache, Ernährung, Beschäftigung oder Leinenaggression: Ich stelle Seminare zu deinem Wunschthema zusammen — für Einzelpersonen, Gruppen oder Vereine. Inhalt, Dauer und Ort besprechen wir individuell; das Angebot erhältst du auf Anfrage.'
+    lang: 'Ob Körpersprache, Beschäftigung oder Leinenaggression: Ich stelle Seminare zu deinem Wunschthema zusammen — für Gruppen oder Vereine. Inhalt, Dauer und Ort besprechen wir individuell; das Angebot erhältst du auf Anfrage.'
   },
   {
     id: 'frisbee',
-    name: 'Frisbee & Discdog',
+    name: 'Hunde Frisbee, Discdog',
     typ: 'Einzeln',
     zielgruppe: 'Sportbegeisterte Teams',
-    umfang: 'pro Stunde',
-    preis: 'CHF 90',
+    umfang: 'pro 30min.',
+    preis: 'CHF 40',
     preisEinheit: '/ Std.',
-    platzgebuehr: false,
+    platzgebuehr: true,
     bild: 'angebot-frisbee.png',
     kurz: 'Discdog von Grund auf: sauberes Fangen, sichere Sprünge und die richtige Wurftechnik — hundeschonend aufgebaut.',
     lang: 'Wir starten bei der Grundlagenarbeit: Motivation, Fangtechnik und ein gelenkschonender Absprung. Danach kommen Wurftechniken, Distanzwürfe und erste kleine Freestyle-Sequenzen dazu. Discdog ist mein Herzenssport — hier hole ich dich genau dort ab, wo du stehst.'
@@ -90,21 +91,34 @@ let ANGEBOTE = [
     preisEinheit: '/ Std.',
     platzgebuehr: false,
     bild: 'angebot-coaching.png',
-    kurz: 'Gezielte Hilfe bei Leinenführigkeit, Rückruf, Alltagsthemen oder Unsicherheiten — massgeschneidert für euch.',
+    kurz: 'Voller Fokus auf dich und dein Hund',
     lang: 'Im Einzelcoaching schauen wir uns genau eure Situation an — zu Hause, auf dem Spaziergang oder auf dem Trainingsplatz. Wir analysieren das Verhalten, finden die Ursache und erarbeiten einen konkreten Trainingsplan, den du im Alltag umsetzen kannst.'
   },
   {
     id: 'spazier',
-    name: 'Spazierdienst',
+    name: 'Gruppenspaziergang – mit Herz, Struktur und echten Freundschaften',
     typ: 'Service',
-    zielgruppe: 'Berufstätige Hundehalter:innen',
-    umfang: 'pro Gang · ca. 60 Min.',
-    preis: 'CHF 30',
+    zielgruppe: 'Für alle die Unterstützung benötigen',
+    umfang: '120min.',
+    preis: 'CHF 65',
     preisEinheit: '/ Gang',
     platzgebuehr: false,
     bild: 'angebot-spazierdienst.png',
     kurz: 'Wenn der Alltag keine Zeit lässt: Dein Hund wird liebevoll abgeholt, ausgeführt und wieder heimgebracht.',
-    lang: 'Ich hole deinen Hund zu Hause ab und bringe ihn nach rund einer Stunde ausgelastet und zufrieden zurück. Spaziert wird in kleinen, passenden Gruppen oder allein — je nachdem, was deinem Hund guttut. Bei regelmässigen Gängen gibt es vergünstigte Abos.'
+    lang: 'Ich hole deinen Hund zu Hause ab und wir gehen gemeinsam in der Hundegruppe rund zwei Stunden spazieren. In dieser Zeit bekommt er nicht nur Bewegung, sondern auch wertvollen Sozialkontakt, Orientierung und kleine Erziehungseinheiten genau dort, wo sie im Moment guttun. Die Hunde dürfen sich lösen, spielen, lernen und einfach Hund sein – in einer sicheren, liebevoll begleiteten Gruppe.'
+  },
+  {
+    id: 'social-walk',
+    name: 'Social Walk',
+    typ: 'Gruppe',
+    zielgruppe: '',
+    umfang: 'einzeln / 90min.',
+    preis: 'CHF 45',
+    preisEinheit: '',
+    platzgebuehr: false,
+    bild: 'angebot-socialwalk.jpg',
+    kurz: 'gemeinsam lernen, sicher wachsen',
+    lang: 'Im Social Walk ist mir wichtig, dass sich alle wohlfühlen – Hunde wie Menschen. Fehler machen gehört dazu, denn nur so können wir gemeinsam lernen. In der Gruppe gibt es kein Mobbing und keinen Druck: Von jung bis alt, von unsicher bis souverän, alle sind willkommen.\n\nWir üben alltagsnahe Situationen wie Begegnungen, Leinenführung, kleine Erziehungseinheiten, Restauranttraining und ruhiges Ankommen. Dabei steht immer im Mittelpunkt, die Körpersprache der Hunde zu lesen und zu verstehen. So werden Mensch und Hund zu einem starken Team, das entspannt und sicher durch alle Alltagssituationen geht.'
   }
 ];
 
@@ -113,19 +127,37 @@ const SLIDER_BILDER = [
   'slider-1.png',
   'slider-2.png',
   'slider-3.png',
-  'slider-4.png'
+  'slider-4.png',
+  'slider-5-socialwalk.jpg'
 ];
 
 /* ---------- Galerie ---------- */
 const GALERIE = [
-  { titel: 'Hund beim Frisbee',        datei: 'galerie-1-frisbee.png' },
-  { titel: 'Portrait eines Hundes',    datei: 'galerie-2-portrait.png' },
-  { titel: 'Training mit Michela',     datei: 'galerie-3-training.png' },
-  { titel: 'Gemeinsamer Spaziergang',  datei: 'galerie-4-spaziergang.png' },
-  { titel: 'Hund in der Hundeschule',  datei: 'galerie-5-hund.png' },
-  { titel: 'Spass beim Training',      datei: 'galerie-6-spass.png' },
-  { titel: 'Gruppe von Hunden',        datei: 'galerie-7-gruppe.png' },
-  { titel: 'Einzelcoaching',           datei: 'galerie-8-coaching.png' }
+  { titel: 'Hund beim Frisbee',                 datei: 'galerie-1-frisbee.png', form: 'gross' },
+  { titel: 'Gruppe auf dem Weg',                datei: 'galerie-14-gruppe-weg.jpg', form: 'hoch' },
+  { titel: 'Portrait eines Hundes',             datei: 'galerie-2-portrait.png' },
+  { titel: 'Hunde warten beim Training',        datei: 'galerie-13-warten.jpg', form: 'breit' },
+  { titel: 'Spaziergang mit Hunden',            datei: 'galerie-18-spaziergang.jpg', form: 'hoch' },
+  { titel: 'Social Walk in der Gruppe',         datei: 'galerie-15-socialwalk.jpg', form: 'gross' },
+  { titel: 'Training mit Michela',              datei: 'galerie-3-training.png' },
+  { titel: 'Langhaardackel beim Social Walk',   datei: 'galerie-9-dackel.jpg' },
+  { titel: 'Begleitung auf dem Weg',            datei: 'galerie-19-begleitung.jpg', form: 'hoch' },
+  { titel: 'Training auf der Wiese',            datei: 'galerie-11-wiese.jpg', form: 'breit' },
+  { titel: 'Gemeinsamer Spaziergang',           datei: 'galerie-4-spaziergang.png' },
+  { titel: 'Übung auf dem Weg',                 datei: 'galerie-22-uebung.jpg', form: 'hoch' },
+  { titel: 'Gruppenbild beim Social Walk',      datei: 'galerie-16-gruppenbild.jpg', form: 'gross' },
+  { titel: 'Hund in der Hundeschule',           datei: 'galerie-5-hund.png' },
+  { titel: 'Auf dem Waldpfad',                  datei: 'galerie-23-waldpfad.jpg', form: 'hoch' },
+  { titel: 'Vertrauensmoment beim Social Walk', datei: 'galerie-10-streicheln.jpg' },
+  { titel: 'Unterwegs mit der Gruppe',          datei: 'galerie-20-unterwegs.jpg', form: 'hoch' },
+  { titel: 'Unterwegs auf dem Waldweg',         datei: 'galerie-12-waldweg.jpg', form: 'breit' },
+  { titel: 'Training in der Gruppe',            datei: 'galerie-24-training.jpg', form: 'hoch' },
+  { titel: 'Spass beim Training',               datei: 'galerie-6-spass.png' },
+  { titel: 'Am Brunnen',                        datei: 'galerie-25-brunnen.jpg', form: 'hoch' },
+  { titel: 'Gruppe von Hunden',                 datei: 'galerie-7-gruppe.png' },
+  { titel: 'Hund im Gras',                      datei: 'galerie-21-im-gras.jpg' },
+  { titel: 'Einzelcoaching',                    datei: 'galerie-8-coaching.png' },
+  { titel: 'Kleiner Hund unterwegs',            datei: 'galerie-17-kleiner-hund.jpg' }
 ];
 
 /* ---------- Wochenplan ---------- */
@@ -145,27 +177,28 @@ const PLAN_FARBEN = {
 
 /* Kurzname im Plan -> Name im Anfrage-Dropdown */
 const PLAN_ZU_ANGEBOT = {
-  'Hundefrisbee':         'Frisbee & Discdog',
+  'Hundefrisbee':         'Hunde Frisbee, Discdog',
+  'Spazierdienst':        'Gruppenspaziergang – mit Herz, Struktur und echten Freundschaften',
   'Welpen':               'Welpen- & Junghundekurs',
   'Junghunde':            'Welpen- & Junghundekurs',
   'Welpen/Junghundekurs': 'Welpen- & Junghundekurs'
 };
 
 /* Kurse, die es nur im Wochenplan gibt */
-const WEITERE_KURSE = ['Social Walk', 'Creative', 'Spass & Sport'];
+const WEITERE_KURSE = [];
 
 let WOCHENPLAN = [
-  { zeit: '09:30', Dienstag: 'Spazierdienst', Donnerstag: 'Spazierdienst', Samstag: 'Social Walk' },
-  { zeit: '10:00', Mittwoch: 'Social Walk' },
-  { zeit: '11:00', Freitag: 'Creative' },
-  { zeit: '12:00', Freitag: 'Hundefrisbee', Samstag: 'Junghunde' },
+  { zeit: '08:00', Montag: 'Spazierdienst', Dienstag: 'Spazierdienst', Mittwoch: 'Spazierdienst', Donnerstag: 'Spazierdienst', Freitag: 'Spazierdienst' },
+  { zeit: '09:30', Samstag: 'Social Walk' },
+  { zeit: '12:00', Freitag: 'Hundefrisbee' },
   { zeit: '12:30', Freitag: 'Hundefrisbee' },
-  { zeit: '13:15', Samstag: 'Welpen' },
-  { zeit: '14:00', Dienstag: 'Welpen/Junghundekurs', Freitag: 'Trickdog' },
-  { zeit: '14:45', Samstag: 'Spass & Sport' },
+  { zeit: '13:15', Freitag: 'Hundefrisbee' },
+  { zeit: '14:00', Freitag: 'Trickdog' },
+  { zeit: '14:45', Freitag: 'Hundefrisbee' },
   { zeit: '15:00', Freitag: 'Hundefrisbee' },
-  { zeit: '15:30', Mittwoch: 'Spass & Sport', Freitag: 'Hundefrisbee' },
-  { zeit: '16:00', Freitag: 'Hundefrisbee' }
+  { zeit: '15:30', Freitag: 'Hundefrisbee' },
+  { zeit: '16:00', Freitag: 'Hundefrisbee' },
+  { zeit: '18:00', Montag: 'Social Walk', Donnerstag: 'Welpen/Junghundekurs' }
 ];
 
 /* ---------- Ablauf ---------- */

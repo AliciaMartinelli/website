@@ -178,13 +178,9 @@
     const ziel = $('#galerie-liste');
     if (!ziel) return;
 
-    GALERIE.forEach((g, i) => {
-      const gross   = i % 5 === 0;
-      const quadrat = i % 3 === 0;
-      const kachel  = document.createElement('div');
-      kachel.className = 'galerie__bild' +
-        (gross ? ' galerie__bild--gross' : '') +
-        (quadrat ? ' galerie__bild--quadrat' : '');
+    GALERIE.forEach(g => {
+      const kachel = document.createElement('div');
+      kachel.className = 'galerie__bild' + (g.form ? ' galerie__bild--' + g.form : '');
       kachel.style.backgroundImage = 'url(' + bild(g.datei) + ')';
       kachel.setAttribute('role', 'img');
       kachel.setAttribute('aria-label', g.titel);
