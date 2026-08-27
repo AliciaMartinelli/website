@@ -1,0 +1,162 @@
+/* =========================================================
+   allaboutdogs – Version 2 (moderner Look)
+   Wird nach style.css geladen und überschreibt gezielt:
+   Video-Hero statt Slider, Pill-Navigation, weichere
+   Karten und Buttons. Farbwelt bleibt dieselbe.
+   ========================================================= */
+
+/* Navigation schwebt transparent über dem Video */
+body.hat-videohero .site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: transparent;
+  border-bottom: none;
+}
+
+.video-hero {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  display: grid;
+  place-items: end center;
+  overflow: hidden;
+}
+
+.video-hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dunkler Verlauf, damit Navigation und Titel lesbar bleiben */
+.video-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(22, 49, 90, .55) 0%,
+    rgba(22, 49, 90, .18) 32%,
+    rgba(28, 53, 87, .22) 68%,
+    rgba(28, 53, 87, .62) 100%);
+}
+
+.video-hero__inhalt {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-inline: 24px;
+  padding-bottom: clamp(76px, 13vh, 130px);
+  text-align: center;
+  color: #fff;
+}
+.video-hero__inhalt h1 {
+  margin: 0 auto;
+  max-width: 22ch;
+  font-family: var(--marker);
+  font-weight: 400;
+  font-size: clamp(23px, 5.4vw, 60px);
+  line-height: 1.12;
+  text-shadow: 0 3px 18px rgba(20, 35, 60, .55);
+}
+.video-hero__inhalt p {
+  margin: 18px auto 0;
+  max-width: 46ch;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 500;
+  text-shadow: 0 2px 10px rgba(20, 35, 60, .6);
+}
+
+.video-hero__aktionen {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 32px;
+}
+.btn-hero {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(20, 35, 60, .35);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn-hero:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 14px 32px rgba(20, 35, 60, .45);
+}
+.btn-hero:active { transform: translateY(0); }
+.btn-hero--lime { background: var(--lime); }
+.btn-hero--gelb { background: var(--gelb); }
+.btn-hero--rosa { background: var(--rosa); }
+
+.video-hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  z-index: 2;
+  transform: translateX(-50%);
+  color: #fff;
+  opacity: .85;
+  animation: hero-wippen 2.2s ease-in-out infinite;
+}
+.video-hero__scroll:hover { opacity: 1; }
+@keyframes hero-wippen {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(7px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-hero__scroll { animation: none; }
+}
+
+@media (max-width: 700px) {
+  .video-hero { min-height: 480px; }
+  .btn-hero { padding: 12px 22px; font-size: 15px; }
+}
+
+/* ---------- Navigation: die wobbeligen Kleckse bleiben!
+   Nur ein feiner Schatten, damit sie auf dem Video gut sitzen. ---------- */
+body.hat-videohero .blob svg {
+  filter: drop-shadow(0 5px 14px rgba(20, 35, 60, .3));
+}
+
+/* ---------- Karten: weicher, mit Bild-Zoom ---------- */
+body.hat-videohero .karte {
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0 6px 24px rgba(42, 36, 28, .08);
+}
+body.hat-videohero .karte:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 48px rgba(42, 36, 28, .16);
+}
+body.hat-videohero .karte__bild {
+  transition: transform .5s ease;
+}
+body.hat-videohero .karte:hover .karte__bild {
+  transform: scale(1.05);
+}
+
+/* ---------- Buttons: rund ---------- */
+body.hat-videohero .btn { border-radius: 999px; }
+
+/* ---------- Überschriften: kräftiger ---------- */
+body.hat-videohero .section__kopf h2 {
+  font-weight: 800;
+  letter-spacing: -.015em;
+}
+
+/* ---------- FAQ: Karten statt Rahmen ---------- */
+body.hat-videohero .faq__eintrag {
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(42, 36, 28, .07);
+}
