@@ -75,7 +75,7 @@ let ANGEBOTE = [
     zielgruppe: 'Sportbegeisterte Teams',
     umfang: 'pro 30min.',
     preis: 'CHF 40',
-    preisEinheit: '/ Std.',
+    preisEinheit: '',
     platzgebuehr: true,
     bild: 'angebot-frisbee.png',
     kurz: 'Discdog von Grund auf: sauberes Fangen, sichere Sprünge und die richtige Wurftechnik — hundeschonend aufgebaut.',
@@ -214,7 +214,8 @@ const ABLAUF = [
 const FAQ = [
   { frage: 'Für welche Hunde sind die Kurse geeignet?', antwort: 'Grundsätzlich für alle Rassen und Altersstufen. Für Welpen und Junghunde gibt es eigene Kurse, ansonsten schauen wir gemeinsam, welches Angebot am besten passt.' },
   { frage: 'Arbeitest du mit positiver Verstärkung?',   antwort: 'Ja, das ist mein wichtigster Grundsatz. Ich zeige dir, wie du erwünschtes Verhalten belohnst und über die Körpersprache mit deinem Hund kommunizierst — fair, gewaltfrei und mit viel Freude.' },
-  { frage: 'Wie setzt sich der Preis zusammen?',        antwort: 'Jedes Angebot hat einen Fixpreis für das Training. Beim Welpen- & Junghundekurs kommt zusätzlich eine Platzgebühr dazu, die je nach Trainingsplatz unterschiedlich ausfällt — diese gebe ich dir bei der Beantwortung deiner Anfrage transparent bekannt.' },
-  { frage: 'Muss mein Hund geimpft sein?',              antwort: 'Für die Teilnahme an Gruppenkursen benötigt dein Hund einen aktuellen Impf- bzw. Gesundheitsschutz. Details bespreche ich gerne bei der Anmeldung mit dir.' },
-  { frage: 'Bietest du Schnupperstunden an?',           antwort: 'Ja! Gerade beim Einzelcoaching und den Sportangeboten ist eine Schnupperstunde möglich, damit du und dein Hund unverbindlich reinschnuppern könnt.' }
+  { frage: 'Wie setzt sich der Preis zusammen?',        antwort: 'Jedes Angebot hat einen Fixpreis für das Training. Bei einigen Angeboten kommt zusätzlich eine Platzgebühr dazu — ob das der Fall ist, siehst du direkt beim jeweiligen Angebot. Sie fällt je nach Trainingsplatz unterschiedlich aus; ich gebe sie dir bei der Beantwortung deiner Anfrage transparent bekannt.' },
+  { frage: 'Was muss ich in die Trainingsstunde mitbringen?', antwort: '<p>Für eine entspannte Trainingsstunde packst du am besten ein:</p><ul><li>Geschirr und Halsband</li><li>eine kurze Leine — und falls vorhanden eine Schleppleine</li><li>eine Decke, auf die sich dein Hund legen kann</li><li>Futterbelohnung</li><li>einen Kauartikel, falls dein Hund aufgeregt ist und es ihm schwerfällt, sich selbst zu regulieren</li></ul><p>Wird einmal spezielles Material benötigt, sage ich dir das vorher — oder bringe es gleich selber mit.</p>' },
+  { frage: 'Muss mein Hund geimpft sein?',              antwort: 'Nein, eine Impfpflicht gibt es bei mir nicht — wichtig ist, dass dein Hund gesund ist. Kranke Hunde bleiben bitte zu Hause; melde dich in dem Fall frühzeitig bei mir ab.' },
+  { frage: 'Bietest du Schnupperstunden an?',           antwort: 'Ja, in den Gruppenkursen kannst du gerne schnuppern. Ohne Hund ist das Schnuppern gratis, mit Hund kostet es eine ganz normale Lektion.' }
 ];

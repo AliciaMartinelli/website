@@ -602,6 +602,12 @@ button, input, select, textarea { font-family: inherit; }
 .faq__frage[aria-expanded="true"]::after { transform: rotate(45deg); }
 .faq__antwort { padding: 0 24px 22px; color: var(--text); font-size: 15px; }
 .faq__antwort[hidden] { display: none; }
+.faq__antwort p { margin: 0; }
+.faq__antwort p + p,
+.faq__antwort ul { margin-top: 10px; }
+.faq__antwort ul { padding-left: 22px; }
+.faq__antwort li { margin-top: 5px; }
+.faq__antwort li::marker { color: var(--navy); }
 
 /* ---------- Timeline / Ablauf ---------- */
 .timeline {
