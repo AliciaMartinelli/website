@@ -125,6 +125,44 @@ body.hat-videohero .site-header {
   .video-hero__aktionen { gap: 10px; margin-top: 24px; }
 }
 
+/* ---------- Galerie: Slider links, Mosaik rechts ---------- */
+.galerie-duo { padding-block: clamp(40px, 5vw, 64px); }
+.galerie-duo__kopf { margin-bottom: clamp(24px, 3vw, 40px); }
+.galerie-duo__wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+.galerie-duo__slider {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.galerie-duo .slider {
+  aspect-ratio: auto;
+  flex: 1;
+  min-height: 420px;
+  width: 100%;
+  margin-inline: 0;
+}
+.galerie-duo .galerie {
+  margin-top: 0;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 78px;
+  gap: 6px;
+}
+.galerie-duo .galerie__bild { border-radius: 8px; }
+@media (max-width: 900px) {
+  .galerie-duo__wrap { grid-template-columns: 1fr; }
+  .galerie-duo .slider { aspect-ratio: 16 / 9; flex: initial; min-height: 0; }
+  .galerie-duo .galerie { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 110px; }
+}
+@media (max-width: 560px) {
+  .galerie-duo .galerie { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 120px; }
+}
+
 /* ---------- Navigation: die wobbeligen Kleckse bleiben!
    Nur ein feiner Schatten, damit sie auf dem Video gut sitzen. ---------- */
 body.hat-videohero .blob svg {
