@@ -122,14 +122,10 @@ let ANGEBOTE = [
   }
 ];
 
-/* ---------- Banner-Slider ---------- */
-const SLIDER_BILDER = [
-  'slider-1.png',
-  'slider-2.png',
-  'slider-3.png',
-  'slider-4.png',
-  'slider-5-socialwalk.jpg'
-];
+/* ---------- Banner-Slider ----------
+   In Version 2 zeigt der Slider (Galerie-Ersatz) alle
+   Galerie-Bilder — wird unten aus GALERIE befüllt. */
+let SLIDER_BILDER = [];
 
 /* ---------- Galerie ---------- */
 const GALERIE = [
@@ -159,6 +155,9 @@ const GALERIE = [
   { titel: 'Einzelcoaching',                    datei: 'galerie-8-coaching.png' },
   { titel: 'Kleiner Hund unterwegs',            datei: 'galerie-17-kleiner-hund.jpg' }
 ];
+
+/* Alle Galerie-Bilder in den Slider übernehmen (Version 2) */
+SLIDER_BILDER = GALERIE.map(g => g.datei);
 
 /* ---------- Wochenplan ---------- */
 const PLAN_TAGE = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];

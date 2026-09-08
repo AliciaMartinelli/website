@@ -134,13 +134,14 @@
   </div>
 </section>
 
-<section id="galerie" class="section">
+<section id="galerie" class="banner" aria-label="Galerie">
   <div class="wrap">
-    <div class="section__kopf">
-      <span class="eyebrow eyebrow--orange">Galerie</span>
-      <h2>Momente aus dem Training</h2>
+    <div class="slider" id="slider">
+      <div class="slider__track" id="slider-track"></div>
+      <button class="slider__nav slider__nav--prev" type="button" data-slide="prev" aria-label="Vorheriges Bild">&lsaquo;</button>
+      <button class="slider__nav slider__nav--next" type="button" data-slide="next" aria-label="Nächstes Bild">&rsaquo;</button>
     </div>
-    <div class="galerie" id="galerie-liste"></div>
+    <div class="slider__dots" id="slider-dots"></div>
   </div>
 </section>
 
