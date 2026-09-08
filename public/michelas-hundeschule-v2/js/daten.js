@@ -51,7 +51,7 @@ let ANGEBOTE = [
     preis: 'CHF 360',
     preisEinheit: '/ Block',
     platzgebuehr: true,
-    bild: 'angebot-trickdog.png',
+    bild: 'angebot-trickdog.jpg',
     kurz: 'Tricks fördern Konzentration, Körpergefühl und die Bindung. Von „Pfötchen“ bis zu kleinen Kunststücken.',
     lang: 'Trickdog ist mehr als Spielerei: Über Shaping und Clickertraining bauen wir Schritt für Schritt Tricks auf — vom Slalom durch die Beine bis zur Verbeugung. Das schult Köpfchen und Körper und macht Mensch und Hund zum eingespielten Team.'
   },
@@ -214,7 +214,8 @@ const FAQ = [
   { frage: 'Für welche Hunde sind die Kurse geeignet?', antwort: 'Grundsätzlich für alle Rassen und Altersstufen. Für Welpen und Junghunde gibt es eigene Kurse, ansonsten schauen wir gemeinsam, welches Angebot am besten passt.' },
   { frage: 'Arbeitest du mit positiver Verstärkung?',   antwort: 'Ja, das ist mein wichtigster Grundsatz. Ich zeige dir, wie du erwünschtes Verhalten belohnst und über die Körpersprache mit deinem Hund kommunizierst — fair, gewaltfrei und mit viel Freude.' },
   { frage: 'Wie setzt sich der Preis zusammen?',        antwort: 'Jedes Angebot hat einen Fixpreis für das Training. Bei einigen Angeboten kommt zusätzlich eine Platzgebühr dazu — ob das der Fall ist, siehst du direkt beim jeweiligen Angebot. Sie fällt je nach Trainingsplatz unterschiedlich aus; ich gebe sie dir bei der Beantwortung deiner Anfrage transparent bekannt.' },
-  { frage: 'Was muss ich in die Trainingsstunde mitbringen?', antwort: '<p>Für eine entspannte Trainingsstunde packst du am besten ein:</p><ul><li>Geschirr und Halsband</li><li>eine kurze Leine — und falls vorhanden eine Schleppleine</li><li>eine Decke, auf die sich dein Hund legen kann</li><li>Futterbelohnung</li><li>einen Kauartikel, falls dein Hund aufgeregt ist und es ihm schwerfällt, sich selbst zu regulieren</li></ul><p>Wird einmal spezielles Material benötigt, sage ich dir das vorher — oder bringe es gleich selber mit.</p>' },
+  { frage: 'Was muss ich in die Trainingsstunde mitbringen?', antwort: '<p>Für eine entspannte Trainingsstunde packst du am besten ein:</p><ul><li>Geschirr und Halsband</li><li>eine kurze Leine — und falls vorhanden eine Schleppleine</li><li>eine Decke als Ruheort, auf den sich dein Hund zurückziehen kann</li><li>Futterbelohnung</li><li>einen Kauartikel, falls dein Hund aufgeregt ist und es ihm schwerfällt, sich selbst zu regulieren</li></ul><p>Wird einmal spezielles Material benötigt, sage ich dir das vorher — oder bringe es gleich selber mit.</p>' },
   { frage: 'Muss mein Hund geimpft sein?',              antwort: 'Nein, eine Impfpflicht gibt es bei mir nicht — wichtig ist, dass dein Hund gesund ist. Kranke Hunde bleiben bitte zu Hause; melde dich in dem Fall frühzeitig bei mir ab.' },
+  { frage: 'Darf meine Hündin am Training teilnehmen, wenn sie läufig ist?', antwort: 'Ja, das ist kein Problem. Teile es mir einfach vor dem Training kurz mit, damit ich die Stunde entsprechend planen kann.' },
   { frage: 'Bietest du Schnupperstunden an?',           antwort: 'Ja, in den Gruppenkursen kannst du gerne schnuppern. Ohne Hund ist das Schnuppern gratis, mit Hund kostet es eine ganz normale Lektion.' }
 ];
